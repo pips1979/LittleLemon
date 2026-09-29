@@ -21,8 +21,9 @@ def index(request):
 	
 
 class BookingViewSet(viewsets.ModelViewSet):
-    queryset = Booking.objects.all()
-    serializer_class = BookingSerializer
+	permission_classes = [IsAuthenticated]
+	queryset = Booking.objects.all()
+	serializer_class = BookingSerializer
 	
 @api_view()
 @permission_classes([IsAuthenticated])
